@@ -14,7 +14,7 @@ import java.util.Date;
 public class StudentGroup implements StudentArrayOperation {
 
 	private Student[] students;
-	
+	private static final Exception llegalArgumentException = null;
 	/**
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
@@ -26,22 +26,23 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
-		return Students;
+		return students;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
-		// Add your implementation here
-		if(students==null)
-			try {
-				throw llegalArgumentException;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		else
-			this.students=students;
-}
+			// Add your implementation here
+			if(students==null)
+				try {
+					throw llegalArgumentException;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			else
+				this.students=students;
+	}
+
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
@@ -59,16 +60,16 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
-		if((student==null)||(index<0||(index>=students.length-1))) {
-			try {
-				throw llegalArgumentException;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			if((student==null)||(index<0||(index>=students.length-1))) {
+				try {
+					throw llegalArgumentException;
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-		}
-	students[index]=student;
-}
+		students[index]=student;
+	}
 
 	@Override
 	public void addFirst(Student student) {
@@ -106,108 +107,68 @@ public class StudentGroup implements StudentArrayOperation {
 		students=std1;
 	}
 
-
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
-		if(Students[index]==null) {
+		if(student==null) {
 			try {
-			throws IllegalArithmeticException;
-			}catch(Exception e) {
-		  e.printStackTrace();
+				throw llegalArgumentException;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		Student []std1=new Student[students.length+1];
+		int i;
+		for(i=0;i<students.length-1;i++) {
+			std1[i]=students[i];
+		}
+		std1[i]=student;
+		while(i<index) {
+			std1[i+1]=students[i];
+			i++;
+		}
+		students=std1;
 	}
-	}
-	Student []std1=new Student[students.length+1];
-	int i;
-	for(i=0;i<students.length-1;i++) {
-		std1[i]=students[i];
-	}
-	std1[i]=student;
-	while(i<index) {
-		std1[i+1]=students[i];
-		i++;
-	}
-	students=std1;
-}
+
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
-		try {
-			if(index<0||index>=Students.length)
-					throws IllegalArgumentException;
-	      remove(Students[index+1]);
-		}
 	}
+
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
-		try {
-			if(index<0||index>=Students.length)
-					throws IllegalArgumentException;
-	      remove(Student[index+1]);
-		}
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
-		try {
-			if(index<0||index>=Students.length)
-					throws IllegalArgumentException;
-	      remove(Students[index+1]);
-		}
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
-		try {
-			if(index<0||index>=Students.length)
-					throws IllegalArgumentException;
-	      remove(Students[index+1]);
-		}
 	}
 
 	@Override
 	public void removeToIndex(int index) {
 		// Add your implementation here
-		try {
-			if(index<0||index>=Students.length)
-					throws IllegalArgumentException;
-	      remove(Students[index+1]);
-		}
 	}
 
 	@Override
 	public void removeToElement(Student student) {
 		// Add your implementation here
-		try {
-			if(index<0||index>=Students.length)
-					throws IllegalArgumentException;
-	      remove(Students[index+1]);
-		}
 	}
 
 	@Override
 	public void bubbleSort() {
 		// Add your implementation here
-		in var1=0,var2=0.temp_var;
-		for(var1=0;var1<Students.length;var1++) {
-			for(var2=var1;j<n-var1-1;var2++) {
-				if(Students[var2]<Students[var2+1]) {
-					temp_var=Students[var2+1];
-					Students[var2+1]=Students[var2];
-					Students[var2]=temp_var;
-				}
-			}
-		}
 	}
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
 		// Add your implementation here
-		
-		return Students;
+		return null;
 	}
 
 	@Override
