@@ -26,64 +26,109 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student[] getStudents() {
 		// Add your implementation here
-		Scanner s=new Scanner(System.in);
-		int index=s.nextInt();
-		try {
-			if(student[index]==null)
-				throws IllegalArgumentException;
-			}
-		catch(Exception e) {
-		       return students;
-		}
-		index++;
+		return Students;
 	}
 
 	@Override
 	public void setStudents(Student[] students) {
 		// Add your implementation here
-		this.students=students;
-	}
-
+		if(students==null)
+			try {
+				throw llegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		else
+			this.students=students;
+}
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
-		return students;
+		if(index<0||(index>=students.length-1))
+			try {
+				Exception IllegalArgumentException = null;
+				throw IllegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return students[index];
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
-		this.students=student;
-		this.index=index;
-	}
+		if((student==null)||(index<0||(index>=students.length-1))) {
+			try {
+				throw llegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	students[index]=student;
+}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
-		if(Students==null)
-				throws IllegalArgumentException;
-		else 
-			this.add(student);
+		if(student==null) {
+			try {
+				throw llegalArgumentException;
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		Student []stud1=new Student[students.length+1];
+		stud1[0]=student;
+		for(int i=students.length;i>=0;i--) 
+			stud1[i]=students[i-1];
+		students=stud1;
 		
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
-		int index=0;
-		if(index<0||index>=Students.length)
-			throws IllegalArgumentException;
+		if(student==null)
+			try {
+				throw llegalArgumentException;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		Student []std1=new Student[students.length+1];
+		//students[students.length-1]=std1;
+		for(int i=0;i<students.length-1;i++) {
+			std1[i]=students[i];
+		}
+		students=std1;
 	}
+
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
-		try {
-			if(Student[index]==null)
-					throws IllegalArgumentException;	
-		}
+		if(Students[index]==null) {
+			try {
+			throws IllegalArithmeticException;
+			}catch(Exception e) {
+		  e.printStackTrace();
 	}
-
+	}
+	Student []std1=new Student[students.length+1];
+	int i;
+	for(i=0;i<students.length-1;i++) {
+		std1[i]=students[i];
+	}
+	std1[i]=student;
+	while(i<index) {
+		std1[i+1]=students[i];
+		i++;
+	}
+	students=std1;
+}
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
